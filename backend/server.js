@@ -1,5 +1,7 @@
 require('dotenv').config()
 const express = require('express')
+const mongoose = require('mongoose');
+
 const latestMessagesRoutes = require('./routes/latestMessagesRoutes');
 const userRoutes = require('./routes/userRoutes');
 const accountRoutes = require('./routes/accountRoutes');
@@ -16,6 +18,14 @@ app.use('/api/user', userRoutes);
 // Public account routes
 app.use('/api/account', accountRoutes);
 
-app.listen(process.env.PORT, () => {
-    console.log('listening');
-})
+// connect to db
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    // listen for requests
+    app.listen(process.env.PORT, () => {
+      console.log('connected to db & listening on port', process.env.PORT)
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+  })
