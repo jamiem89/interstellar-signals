@@ -6,14 +6,6 @@ const messageSchema = new Schema({
   message: {
     type: String,
     required: true
-  },
-  user_id: {
-    type: String,
-    required: true
-  },
-  public: {
-    type: Boolean,
-    default: false
   }
 }, { timestamps: true })
 

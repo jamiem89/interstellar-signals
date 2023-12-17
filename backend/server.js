@@ -2,21 +2,13 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose');
 
-const latestMessagesRoutes = require('./routes/latestMessagesRoutes');
-const userRoutes = require('./routes/userRoutes');
-const accountRoutes = require('./routes/accountRoutes');
+const publicRoutes = require('./routes/publicRoutes');
 
 const app = express();
 app.use(express.json())
 
 // Public message routes
-app.use('/api', latestMessagesRoutes);
-
-// Protected User routes
-app.use('/api/user', userRoutes);
-
-// Public account routes
-app.use('/api/account', accountRoutes);
+app.use('/api', publicRoutes);
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
