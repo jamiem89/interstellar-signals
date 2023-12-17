@@ -5,6 +5,7 @@ const userRoutes = require('./routes/userRoutes');
 const accountRoutes = require('./routes/accountRoutes');
 
 const app = express();
+app.use(express.json())
 
 // Public message routes
 app.use('/api', latestMessagesRoutes);
