@@ -1,8 +1,7 @@
 const express = require('express');
 const {
     getMessages,
-    getMessagesByUser,
-    getMessageById
+    deleteMessageById,
 } = require('../controllers/messagesControllers');
 
 const router = express.Router();
@@ -10,11 +9,7 @@ const router = express.Router();
 // Get all messages
 router.get('/', getMessages);
 
-// Get single message
-router.get('/:id', getMessageById);
-
-// Get all messages for user
-router.get('/user/:userId', getMessagesByUser);
-
+// Delete single message
+router.delete('/delete/:messageId', deleteMessageById);
 
 module.exports = router;
