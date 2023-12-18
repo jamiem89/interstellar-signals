@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 import NewMessage from './components/NewMessage';
@@ -11,7 +10,7 @@ function App() {
   useEffect(() => {
     const fetchMessages = async () => {
 
-      const response = await fetch("/api/");
+      const response = await fetch(`${process.env.REACT_APP_API}`);
       const json = await response.json();
 
       await setMessages(json);

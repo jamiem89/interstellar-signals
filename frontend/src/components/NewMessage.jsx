@@ -15,7 +15,7 @@ const NewMessage = () => {
     if (message.length) {
       const newMessage = { message };
 
-      const response = await fetch("/api/", {
+      const response = await fetch(`${process.env.REACT_APP_API}`, {
         method: "POST",
         body: JSON.stringify(newMessage),
         headers: {
