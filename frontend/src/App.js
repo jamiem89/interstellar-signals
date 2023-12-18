@@ -17,7 +17,7 @@ function App() {
     }
 
     fetchMessages();
-  }, [messages])
+  }, [])
 
   return (
     <div className="grid md:grid-cols-12 gap-6 max-w-[800px] mx-auto">
