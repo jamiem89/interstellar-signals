@@ -1,10 +1,12 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 const publicRoutes = require('./routes/publicRoutes');
 
 const app = express();
+app.use(cors())
 app.use(express.json())
 
 // Public message routes
